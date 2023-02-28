@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE `stock` MODIFY `orderDate` VARCHAR(255) NOT NULL,
+    MODIFY `unitePrice` VARCHAR(255) NOT NULL,
+    MODIFY `total` VARCHAR(255) NOT NULL;

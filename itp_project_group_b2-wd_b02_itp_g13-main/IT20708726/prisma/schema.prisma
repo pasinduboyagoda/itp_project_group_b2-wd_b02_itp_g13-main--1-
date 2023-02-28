@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Housekeeper {
+  id        Int    @id @default(autoincrement())
+  email     String @db.VarChar(255)
+  phone     String @db.VarChar(255)
+  password  String @db.VarChar(255)
+  firstname String @map("first_name") @db.VarChar(255)
+  lastName  String @map("last_name") @db.VarChar(255)
+}
+
+model Attendance {
+  employeeId    Int     @id @default(autoincrement())
+  firstName     String @map("first_name") @db.VarChar(255)
+  lastName      String @map("last_name") @db.VarChar(255)
+  Date          String  @db.VarChar(255)
+  in_time        String  @db.VarChar(255)
+  out_time       String  @db.VarChar(255)
+}
+
+
+model Add_task {
+  id        Int    @id @default(autoincrement())
+  email     String @db.VarChar(255)
+  Room_No   String @db.VarChar(255)
+  firstName String @map("first_name") @db.VarChar(255)
+  lastName  String @map("last_name") @db.VarChar(255)
+  Task     String @db.VarChar(255)
+  Time     String @db.VarChar(255)
+}

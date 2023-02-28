@@ -1,0 +1,131 @@
+/*background picture*/
+body
+    {
+    		background-image:url();
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-attachment:fixed;
+    }
+  ul.menu
+
+    {
+        position:sticky;
+        top:0;
+    		list-style:none;
+    		margin:0px;
+    		padding:0px;
+    		background-color:#1a0000;
+    		overflow: hidden;
+    }
+    li.menu
+    {
+    		float:left;
+    }
+    li a
+    {
+    		display:block;
+    		color:white;
+    		text-align:center;
+    		padding:14px 16px;
+    		text-decoration: none;
+    		font-family:cursive;
+    }
+    li a:hover
+    {
+    		background-color:lightblue;
+    }
+    
+       /*search box*/
+
+      .site-search
+      {
+      	float:right;
+      	padding-top:5px;
+      	padding-bottom: 5px;
+      	padding-right:0 10px;
+
+      	
+      }
+      input[type=search]
+      {
+       border-radius:20px; 
+       outline:none;
+       transition:1s;
+       padding-left:8px;
+       padding-bottom:3px;
+       padding-top:8px;
+       padding-right: 15px; 
+       margin-top:5px; 
+
+      }
+      input[type=search]:focus
+      {
+      	 border-color:dodgerBlue;
+         box-shadow:0 0 8px 0 dodgerBlue;
+      }
+      .site-search button
+      {
+      	
+      	width:18px;
+      	height:18px;
+      	background-image:url("../picturee/search.png"); 
+      	border:0;
+      	background-color:#1a0000 ;
+
+      }
+      .h1class
+    	{
+    		color:white;
+    		font-family: fantasy;
+    		text-align:center;
+    		font-size:35px;
+    	}
+     
+     /*_________________________________*/
+
+
+    .pic1
+    {
+      float:left;
+      border-style:solid;
+      border-color:orange;
+      padding-top: 20px;
+      padding-left:10px;
+      padding-right: 10px;
+      padding-bottom: 5px;
+      
+      
+    }
+    .events
+    {
+      text-align:left;
+      color:white;
+      font-size:25px;
+      border-style:solid;
+      border-color:orange;
+
+    }
+    .t1
+    {
+      border-style:solid;
+      border-color:orange;
+    }
+    .button
+    {
+
+    
+      background-color:dodgerblue;
+      width:20%;
+      padding:5px 5px 5px 5px ;
+      border-radius: 7px;
+      color:white;
+      outline: none;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+     .button:hover
+     {
+      background-color:blue;
+     }
+    

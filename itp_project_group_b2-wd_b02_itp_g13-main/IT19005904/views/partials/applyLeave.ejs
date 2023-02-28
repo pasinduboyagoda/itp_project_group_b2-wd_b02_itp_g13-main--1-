@@ -1,0 +1,49 @@
+<div id="applybox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+	<input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Apply for leave</div>
+            </div>     
+
+            <div style="padding-top:30px" class="panel-body" >
+
+                    
+                <form id="applyform" class="form-horizontal" role="form" method="POST" action="/apply_leave">
+                            
+                    
+                        
+                    <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <select class="form-control"  id="leaveType" name="leaveType" >
+                                  <option selected  value="CASUAL_LEAVE">CASUAL_LEAVE</option>
+                                  <option value="STUDY_LEAVE">STUDY_LEAVE</option>
+                                  <option value="SICK_LEAVE">SICK_LEAVE</option>
+                                </select>
+                            </div>
+
+
+                           
+                    
+                    <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="fromDate" type="date" class="form-control" name="fromDate" placeholder="From Date">
+                            </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="toDate" type="date" class="form-control" name="toDate" placeholder="To Date">
+                            </div>        
+                            
+                    
+                        <div style="margin-top:10px" class="form-group">
+                            <!-- Button -->
+
+                            <div class="col-sm-12 controls">
+                              <button id="btn-login" class="btn  btn-block" type="submit">Apply for leave  </button>
+
+                            </div>
+                        </div>    
+                    </form>     
+                </div>                     
+            </div>  
+</div>

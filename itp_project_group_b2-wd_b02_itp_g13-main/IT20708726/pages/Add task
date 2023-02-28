@@ -1,0 +1,128 @@
+<div className='houskeeperdetail-container'>
+        <form className='housekeeperdetail-form'>
+          <div className='housekeeperdetail-form-head'>
+            <i className='fa fa-bed' />
+            <span>HOUSEKEEPER DETAILS</span>
+           
+          </div>
+          
+          <div className='housekeeperdetail-form-body'>
+            <div className='housekeeperdetail-form-group'>
+              <i className='fa fa-calendar-o' />
+              <span>housekeeper Frist Name</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='string'
+                placeholder='your frist name'
+                value={firstName}
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  setFirstName(e.target.value);
+                }}
+              />
+              <i className='fa fa-calendar-o' />
+              <span>housekeeper Last Name</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='string'
+                placeholder='your last name'
+                value={lastName}
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  setLastName(e.target.value);
+                }}
+              />
+            </div>
+            <div className='housekeeperdetail-form-group'>
+              <i className='fa fa-calendar-o' />
+              <span>housekeeper email</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='String'
+                placeholder='aaaaa@gmail.com'
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  sethousekeeperEmail(e.target.value);
+                }}
+              />
+              <i className='fa fa-calendar-o' />
+              <span>housekeeper NIC Number</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='int'
+                placeholder='000000000V'
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  sethousekeeperNIC(e.target.value);
+                }}
+              />
+            </div>
+            <div className='housekeeperdetail-form-group'>
+              <i className='fa fa-calendar-o' />
+              <span>Room Number</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='int'
+                placeholder='m407'
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  setRoomNumber(e.target.value);
+                }}
+              />
+              <i className='fa fa-calendar-o' />
+              <span>Housekeeper Phone Number</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='int'
+                placeholder='0123456789'
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  setPhoneNumber(e.target.value);
+                }}
+              />
+            </div>
+            <div className='housekeeperdetail-form-group'>
+              <i className='fa fa-calendar-o' />
+              <span>Task</span>
+              <input
+                className='housekeeperdetail-form-group_input'
+                type='string'
+                placeholder='foodsupply'
+                onChange={(e) => {
+                  // eslint-disable-next-line no-console
+                  console.log('test=-->');
+                  setTask(e.target.value);
+                }}
+              />
+            </div>
+            
+            <div className='ordhousekeeperdetailer-form-search-btn'>
+              <i className='fa fa-search' />
+              <button className='housekeeperdetail-btn-margin' onClick={async ()=>{
+                await fetch('api/housekeeper',{
+                  method: 'POST',
+                  headers: {
+                    'content-type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    housekeeperEmail: housekeeperEmail,
+                    housekeeperNIC: housekeeperNIC,
+                    RoomNumber:RoomNumber,
+                    PhoneNumber: PhoneNumber,
+                    task: task,
+                  })
+                });
+                getOfferData();
+              }}>SUBMITE</button>
+            </div>
+          </div>
+        </form>
+      </div>

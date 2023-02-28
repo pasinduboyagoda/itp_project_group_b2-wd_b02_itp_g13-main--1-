@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Leave Management System</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/importer.css">
+    <!--STYLES END-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   
+  </head>
+
+ 
+  <body>
+    <% if (typeof status!='undefined'){ %>
+        <% if(status=="success") {%>
+      <div class="alert alert-success alert-dismissible fade in" style="margin-bottom: 5px;position:fixed;z-index: 2001;width:100%">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong><%- message %></strong>
+        <% } else if(status=="error"){%>
+          <div class="alert alert-danger alert-dismissible fade in" style="margin-bottom: 5px;position:fixed;z-index: 2001;width:100%">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong><%- message %></strong>
+        <% } else if(status=="error-persistent") { %>
+          <div class="alert-persistent alert-danger alert-dismissible fade in" style="margin-bottom: 5px;position:fixed;z-index: 2001;width:100%">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong><%- message %></strong>
+        <% } %>
+      </div>
+    </div>
+  <% } %>
+  <script>
+    let flash_msg = document.getElementsByClassName('alert');
+    if(flash_msg.length!=0){
+      setTimeout(function(){ flash_msg[0].remove() }, 3000);
+    }
+    let flash_msg_persistent = document.getElementsByClassName('alert-persistent');
+    if(flash_msg_persistent.length!=0){
+      setTimeout(function(){ flash_msg_persistent[0].remove() }, 10000);
+    }
+   
+  </script>
+
+  <nav class="navbar navbar-inverse " style="width: 100%;position: fixed;top:0;z-index: 1001;background-color: #173437;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <input type="button" class="navbar-toggle" style='border-radius:40px;width:40px;background: url("/images/ham.png") no-repeat;background-size: 40px 40px;' data-toggle="collapse" data-target="#myNavbar">
+     
+  
+        <a class="navbar-brand" href="/my_leaves">Leave Management System</a>
+      </div>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="sidebar-nav-li">
+          <a href="/dashboard">Dashboard</a>
+        </li >
+        <li class="sidebar-nav-li">
+          <a href="/manage_leaves">Manage Leave Applications</a>
+        </li>
+        <li class="sidebar-nav-li">
+          <a href="/apply_leave">Apply for Leave</a>
+        </li>
+        <li class="sidebar-nav-li">
+          <a href="/my_leaves">Manage Leave Type</a>
+        </li>
+       
+      </ul>
+       
+        <ul class="nav navbar-nav navbar-right">
+          <% if (typeof user!='undefined' ){%>
+            
+            <li><a href="/logout"><%= user.email %><span style="padding-left: 5px;" class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          <% } else {%>
+          <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  
+
+  <div id="page-content-wrapper" style="position:fixed; top:5; left: 60; ">
+    <%- body %>
+  </div>
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <!--SCRIPTS END-->
+    <script>
+      $(document).ready(
+        function(){
+          $('a[href="' + window.location.pathname + '"]').parent().addClass('active');
+        }
+      )
+      $('.navlist').click(function() {
+        if($(window).width()<768 &&!($(this).hasClass('dropdown')))
+          $('.navbar-toggle').click();
+      });
+      $('.sidebar-nav-li').click(function() {
+        if($(window).width()>768 )
+          $('.sidebar-nav-li').removeClass('active-side');
+          $(this).addClass('active-side')
+      });
+    
+    </script>
+  </body>
+</html>

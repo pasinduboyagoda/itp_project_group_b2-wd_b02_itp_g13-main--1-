@@ -1,0 +1,44 @@
+<div id="dashboardbox" style="margin-top:50px; top:25; left:150;" >                    
+	<div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Dashboard</div>
+            </div>     
+
+            <div style="padding-top:30px" class="panel-body" >
+                <style>
+                    tr, td {
+                     padding: 5px;
+                     }
+                     </style>
+                <table>
+                    <% if(typeof data!='undefined')
+                        { %>
+                    <tr>
+                        <td> <span class="input-group-addon"><i class="glyphicon glyphicon-lock">Number of Employees</i></span></td>
+                        <td> <%= data.totalEmp %></td>
+                    </tr>
+
+                    <tr> 
+                        <td> <span class="input-group-addon"><i class="glyphicon glyphicon-plane">Number of Leaves</i></span></td>
+                        <td> <%= data.totalLeaves %></td>
+                    </tr>
+
+                    <tr> 
+                        <td> <span class="input-group-addon"><i class="glyphicon glyphicon-ok-circle">Number of approved applications</i></span></td>
+                        <td> <%= data.approvedLeaves %></td>
+                    </tr>
+
+                    <tr> 
+                        <td><span class="input-group-addon"><i class="glyphicon glyphicon-remove">Number of Cancelled applications</i></span> </td>
+                        <td> <%= data.rejectedLeaves %></td>
+                    </tr>
+
+                    <tr> 
+                        <td> <span class="input-group-addon"><i class="glyphicon glyphicon-repeat">Number of Pending applications</i></span></td>
+                        <td> <%= data.pendingLeaves %></td>
+                    </tr> <% } %>
+                </table>
+
+            
+            </div>  
+</div>

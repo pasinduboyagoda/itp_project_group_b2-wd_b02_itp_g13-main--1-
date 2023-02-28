@@ -1,0 +1,61 @@
+    <div id="myleaves" style="margin-top:50px;" class="mainbox col-md-10 col-md-offset-3 col-sm-1 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Manage Leaves</div>
+            </div>     
+
+            <div style="padding-top:10px" class="panel-body" > 
+                <style>
+                   tr, td {
+                    padding: 5px;
+                    }
+                   
+                    </style>
+                <table border="5px" >
+                    <tr>
+                        <th> Leave type</th>
+                        <th>Balance</th>
+                    </th>
+                    <tr>
+                        <td> CASUAL_LEAVE </td>
+                        <td>  <%= data.casualLeaveAvailable %> </td>
+                    </tr>
+                    <tr>
+                        <td> SICK_LEAVE</td>
+                        <td>  <%= data.sickLeaveAvailable %> </td>
+                    </tr>
+                    <tr>
+                        <td> STUDY_LEAVE </td>
+                        <td>  <%= data.studyLeaveAvailable %> </td>
+                    </tr>
+                </table>
+                <hr>
+                <table  border="5px">
+                    <tr>
+                        <th> Leave type</th>
+                        <th> From Date</th>
+                        <th> To Date</th>
+                        <th> Action</th>
+                    </th>
+
+                   
+                <% if(typeof data!='undefined'){ 
+                    if(typeof data.leaves!='undefined')
+                      for(var i =0;i < data.leaves.length;i++){ %>
+                    <tr>
+                        <td> <%= data.leaves[i].type %> </td>
+                        <td>  <%= data.leaves[i].fromDate %> </td>
+                        <td> <%= data.leaves[i].toDate %> </td>
+                        <td> <a href="/delete_leave/<%=data.leaves[i].id%>">Delete</a> </td>
+                    </tr>
+                    <% } } %>
+                </table>
+            
+            
+            </div></div>
+            </div>
+            
+
+
+
+

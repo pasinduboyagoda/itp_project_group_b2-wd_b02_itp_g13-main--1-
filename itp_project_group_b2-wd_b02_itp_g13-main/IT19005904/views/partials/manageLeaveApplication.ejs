@@ -1,0 +1,49 @@
+
+   <div id="myleaves" style="margin-top:50px;" class="mainbox col-md-12 col-md-offset-3 col-sm-1 col-sm-offset-2">                    
+    <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Manage Leaves</div>
+            </div>     
+
+            <div style="padding-top:30px" class="panel-body" > 
+                <style>
+                   tr, td {
+                    padding: 15px;
+                    }
+                    </style>
+                <table border="5px">
+                    <tr>
+                        <th> Leave Type</th>
+                        <th> Leave Status</th>
+                        <th> Requestor</th>
+                        <th> From Date</th>
+                        <th> To Date</th>
+                        <th> Approve</th>
+                        <th> Reject</th>
+                    </th>
+
+                   
+                <% if(typeof data!='undefined'){ 
+                 
+                      for(var i =0;i < data.length;i++){ %>
+                    <tr>
+                        <td> <%= data[i].type %> </td>
+                        <td> <%= data[i].status %> </td>
+                        <td> <%= data[i].employee.email %> </td>
+                        <td>  <%= data[i].fromDate %> </td>
+                        <td> <%= data[i].toDate %> </td>
+                        
+                        <td> <a href="/approve_leave/<%=data[i].id%>">Approve</a> </td>
+                        <td> <a href="/reject_leave/<%=data[i].id%>">Reject</a> </td>
+                    </tr>
+                    <% } } %>
+                </table>
+            
+            
+            </div></div>
+            </div>
+            
+
+
+
+

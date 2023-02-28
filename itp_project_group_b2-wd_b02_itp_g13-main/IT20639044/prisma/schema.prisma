@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int    @id @default(autoincrement())
+  email     String @db.VarChar(255)
+  password  String @db.VarChar(255)
+  firstName String @map("first_name") @db.VarChar(255)
+  lastName  String @map("last_name") @db.VarChar(255)
+}
+
+model Offer {
+  offerId    Int     @id @default(autoincrement())
+  status     String  @db.VarChar(255)
+  type       String  @db.VarChar(255)
+  desc       String  @db.VarChar(255)
+  startDate  String  @db.VarChar(255)
+  endDate    String  @db.VarChar(255)
+  offerCode  String  @db.VarChar(255)
+  createDate String  @db.VarChar(255)
+  discount   Decimal
+}
+
+model parkingdetail {
+  parkId             Int     @id @default(autoincrement())
+  fullName           String  @db.VarChar(255)
+  vehicleType         String  @db.VarChar(255)
+  vehicleregNum      String  @db.VarChar(255)
+  email              String  @db.VarChar(255)
+  idNum              String  @db.VarChar(255)
+  contactNum         String  @db.VarChar(255)
+}
+
+
+model pooldetail {
+  poolId        Int     @id @default(autoincrement())
+  fullName      String  @db.VarChar(255)
+  numAttendance String  @db.VarChar(255)
+  date          String  @db.VarChar(255)
+  time          String  @db.VarChar(255)
+}

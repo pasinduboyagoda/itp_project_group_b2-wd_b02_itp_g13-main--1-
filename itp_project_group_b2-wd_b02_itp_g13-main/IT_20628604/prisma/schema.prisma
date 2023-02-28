@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int    @id @default(autoincrement())
+  email     String @db.VarChar(255)
+  password  String @db.VarChar(255)
+  firstName String @map("first_name") @db.VarChar(255)
+  lastName  String @map("last_name") @db.VarChar(255)
+}
+
+model Offer {
+  offerId    Int     @id @default(autoincrement())
+  status     String  @db.VarChar(255)
+  type       String  @db.VarChar(255)
+  desc       String  @db.VarChar(255)
+  startDate  String  @db.VarChar(255)
+  endDate    String  @db.VarChar(255)
+  offerCode  String  @db.VarChar(255)
+  createDate String  @db.VarChar(255)
+  discount   Decimal
+}
+
+model customerdetail {
+  cuId         Int     @id @default(autoincrement())
+  fullName     String  @db.VarChar(255)
+  roomNum      String  @db.VarChar(255)
+  address      String  @db.VarChar(255)
+  email        String  @db.VarChar(255)
+  idNum        String  @db.VarChar(255)
+  contactNum   String  @db.VarChar(255)
+}
+
+
+model eventinformation {
+  eventId       Int     @id @default(autoincrement())
+  eventType     String  @db.VarChar(255)
+  eventStart    String  @db.VarChar(255)
+  eventEnd      String  @db.VarChar(255)
+  numAttendes   String  @db.VarChar(255)
+  aRequest      String  @db.VarChar(255)
+ 
+}
+
+model salary {
+  empId       Int     @id @default(autoincrement())
+  empname     String  @db.VarChar(255)
+  empbankacc    String  @db.VarChar(255)
+  emptype      String  @db.VarChar(255)
+  basicsal   String  @db.VarChar(255)
+  allownce      String  @db.VarChar(255)
+  numofday      String  @db.VarChar(255)
+ 
+}
